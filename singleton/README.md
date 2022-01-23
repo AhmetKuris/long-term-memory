@@ -1,6 +1,6 @@
 # Singleton
 
-Singleton pattern is one of the design patterns that was defined by the gang of four. 
+Singleton pattern is one of the design patterns that was defined by the Gang of Four. 
 It is simply using the same class instance whenever it is called.
 
 Implementation is thread safe. There are two null checks so that unnecessary locking can't occur and multiple threads do not create a new instance.
