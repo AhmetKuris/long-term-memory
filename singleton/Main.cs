@@ -1,39 +1,39 @@
-﻿public class Main
+﻿namespace Singleton
 {
-	public Main()
-	{
-		public void Example()
+    public class Main
+    {
+        public Main()
         {
             var singletonSample = SingletonSample.Instance;
         }
-	}
-}
-
-public sealed class SingletonSample
-{
-    private static SingletonSample instance;
-    private static readonly object lockObject = new object();
-
-    //Private constructor so that other classes can't create another one
-    private SingletonSample()
-    {
     }
 
-    public static SingletonSample Instance
+    public sealed class SingletonSample
     {
-        get
+        private static SingletonSample instance;
+        private static readonly object lockObject = new object();
+
+        //Private constructor so that other classes can't create another one
+        private SingletonSample()
         {
-            if (instance == null)
+        }
+
+        public static SingletonSample Instance
+        {
+            get
             {
-                lock (lockObject)
+                if (instance == null)
                 {
-                    if (instance == null)
+                    lock (lockObject)
                     {
-                        instance = new SingletonSample();
+                        if (instance == null)
+                        {
+                            instance = new SingletonSample();
+                        }
                     }
                 }
+                return instance;
             }
-            return instance;
         }
     }
 }
